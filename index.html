@@ -1,0 +1,42 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Godisnji</title>
+	</head>
+	<body>
+		<div
+			id="wrapper"
+			style="
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+                height: 100vh;
+                font-size: 3rem;
+			"
+		>
+			<div id="countdown"></div>
+			<div id="palm">🌴</div>
+		</div>
+	</body>
+	<script>
+		// function that will update a countwon timer by id
+		function updateTime() {
+			let now = new Date();
+			let vacation = new Date('2023-08-20');
+			let diff = vacation - now;
+			let day = Math.floor(diff / (1000 * 60 * 60 * 24));
+			let hour = Math.floor(
+				(diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+			);
+			let minute = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+			let second = Math.floor((diff % (1000 * 60)) / 1000);
+			document.getElementById('countdown').innerHTML =
+				day + 'd ' + hour + 'h ' + minute + 'm ' + second + 's ';
+		}
+
+		// update time every second
+		setInterval(updateTime, 1000);
+	</script>
+</html>
